@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form id="registerForm">
+        <label for="newUsername">Username:</label><br>
+        <input type="text" id="newUsername" name="newUsername" required><br><br>
+        <label for="newPassword">Password:</label><br>
+        <input type="password" id="newPassword" name="newPassword" required><br><br>
+        <input type="submit" value="Register">
+    </form>
+
+    <p>Already have an account? <a href="login.html">Login here</a>.</p>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const newUsername = document.getElementById("newUsername").value;
+            const newPassword = document.getElementById("newPassword").value;
+
+            // Store the username and password in localStorage
+            localStorage.setItem("username", newUsername);
+            localStorage.setItem("password", newPassword);
+
+            alert("Registration successful!");
+
+            // Redirect to login page after registration
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>
